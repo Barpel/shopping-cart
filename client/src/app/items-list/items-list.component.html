@@ -1,0 +1,12 @@
+<div class="items-container">
+    <div class="items-list">
+        <div class="item" *ngFor="let item of items">
+            <img src="{{item.image}}" alt="{{item.name}}" />
+            <div class="item-details">
+                <p class="item-name">{{item.name}}</p>
+                <p class="item-description">{{item.description}}</p>
+            </div>
+            <p class="item-price">${{item.price}}</p>
+        </div>
+    </div>
+</div>
