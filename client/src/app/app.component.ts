@@ -1,7 +1,5 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { Observable, debounceTime } from 'rxjs';
+import { Component } from '@angular/core';
 import { CartService } from './services/cart/cart.service';
-import { ItemService } from './services/item/item.service';
 import { Item } from './items';
 
 
@@ -11,14 +9,9 @@ import { Item } from './items';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor(
-    private cartService: CartService,
-    private itemService: ItemService,
-  ) { }
+  constructor() { }
 
   searchTerm = ''
-
-  itemsInCart: Item[] = this.cartService.getItems();
 
   onPerformSearch(value: string) {
     this.searchTerm = value;

@@ -1,13 +1,23 @@
 <header>
     <div class="navbar">
-        <div class="left-panel">
-            <button>
-                <span class="logo"></span>
-                Find & Shop
-            </button>
-            <app-search-input (performSearch)="handlePerformSearch($event)"></app-search-input>
-        </div>
-        <button class="cart-icon">
-        </button>
+        <ul>
+            <li>
+                <a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page">
+                    <div class="left-panel">
+                        <button>
+                            <span class="logo"></span>
+                            Find & Shop
+                        </button>
+                        <app-search-input (performSearch)="handlePerformSearch($event)"></app-search-input>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a routerLink="/cart" routerLinkActive="active" ariaCurrentWhenActive="page">
+                    <button class="cart-icon">
+                    </button>
+                </a>
+            </li>
+        </ul>
     </div>
 </header>

@@ -3,9 +3,21 @@
     width: 100%;
     background-color: royalblue;
     height: 60px;
-    display: flex;
-    justify-content: space-between;
     padding-left: 16px;
+
+    ul {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        height: 100%;
+
+        li a {
+            text-decoration: none;
+        }
+    }
 
     .left-panel {
         display: flex;

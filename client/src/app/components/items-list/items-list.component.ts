@@ -13,7 +13,7 @@ export class ItemsListComponent implements OnInit {
 
   constructor(private cartService: CartService) { }
 
-  @Input() items!: Array<Item>
+  items = this.cartService.getItems();
 
   removeFromCart(itemId: string | number) {
     this.cartService.removeFromCart(itemId);
