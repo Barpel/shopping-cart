@@ -1,0 +1,48 @@
+.navbar {
+    box-sizing: border-box;
+    width: 100%;
+    background-color: royalblue;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 16px;
+
+    .left-panel {
+        display: flex;
+        align-items: center;
+
+        button {
+            background-color: transparent;
+            color: white;
+            font-size: 20px;
+            border: none;
+            margin-right: 8px;
+            cursor: pointer;
+
+            .logo {
+                margin-right: 4px;
+                padding: 30px;
+                background: no-repeat url('../../../assets/app-logo.png');
+                background-size: contain;
+                background-position: center;
+                filter: invert(1);
+            }
+        }
+    }
+
+    .cart-icon {
+        background: no-repeat url('../../../assets/cart-logo.png');
+        background-size: contain;
+        background-position: center;
+        padding: 16px;
+        filter: invert(1);
+        border: none;
+        margin-right: 32px;
+        transition: filter 0.3s;
+
+        &:hover {
+            cursor: pointer;
+            filter: invert(0.8);
+        }
+    }
+}

@@ -1,0 +1,91 @@
+@mixin overflow-ellipsis {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.items-suggestion-container {
+    display: grid;
+    grid-template-columns: repeat(3, 320px);
+    width: 80%;
+    justify-content: center;
+    margin: 80px auto 0;
+
+    .item {
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        flex-flow: row wrap;
+        height: 320px;
+        margin: 16px;
+        padding: 8px;
+        max-width: 320px;
+        border: 1px solid rgba(0, 0, 0, 0.150);
+        border-radius: 4px;
+        background-color: white;
+        animation: fade-in 0.4s both;
+        transition: transform 0.3s;
+
+        &:hover {
+            transform: scale(1.02);
+        }
+
+        img {
+            height: 100%;
+            max-height: 160px;
+            width: 100%;
+            object-fit: contain;
+        }
+
+        .item-name {
+            margin-top: 16px;
+            font-weight: 600;
+            font-size: 18px;
+            @include overflow-ellipsis();
+        }
+
+        .item-description {
+            margin-top: 8px;
+            font-size: 14px;
+            color: rgb(57, 57, 57);
+            @include overflow-ellipsis();
+        }
+
+        .item-price {
+            margin-top: 16px;
+            color: rgb(57, 57, 57);
+            font-size: 14px;
+
+            strong {
+                font-size: 16px;
+                color: black;
+            }
+        }
+
+        button {
+            margin-top: 16px;
+            width: 100%;
+            border: none;
+            background-color: royalblue;
+            color: white;
+            padding: 8px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+
+            &:hover {
+                cursor: pointer;
+                background-color: darken(royalblue, 5);
+            }
+        }
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

@@ -6,7 +6,6 @@
    * @return {Array} of filtered list items. In case there were no matches, returns an empty array.
    */
 function filterByPropertyContent(list, propertyName, term) {
-    console.log('filtering by', propertyName);
     return list.filter(item => item[propertyName]?.includes(term));
 }
 

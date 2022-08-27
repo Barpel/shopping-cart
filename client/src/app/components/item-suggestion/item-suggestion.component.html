@@ -1,0 +1,9 @@
+<div *ngIf="items.length" class="items-suggestion-container">
+    <div class="item" *ngFor="let item of items" (click)="addToCart(item)">
+        <img src={{item.image}} alt="{{item.name}}" />
+        <span class="item-name">{{item.name}}</span>
+        <span class="item-description">{{item.description}}</span>
+        <span class="item-price"><strong>Price:</strong> ${{item.price}}</span>
+        <button>Add to cart</button>
+    </div>
+</div>

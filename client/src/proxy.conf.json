@@ -1,0 +1,7 @@
+{
+    "/api/*": {
+        "target": "https://localhost:3100/api/products",
+        "secure": true,
+        "changeOrigin": true
+    }
+}
