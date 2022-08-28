@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { CartService } from './services/cart/cart.service';
-import { Item } from './items';
 
 
 @Component({
@@ -10,10 +8,4 @@ import { Item } from './items';
 })
 export class AppComponent {
   constructor() { }
-
-  searchTerm = ''
-
-  onPerformSearch(value: string) {
-    this.searchTerm = value;
-  }
 }

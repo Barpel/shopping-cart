@@ -1,5 +1,8 @@
 <div *ngIf="items.length" class="items-suggestion-container">
-    <div class="item" *ngFor="let item of items" (click)="addToCart(item)">
+    <div class="item {{i}}" *ngFor="let item of items; let i = index" (click)="addToCart(item)"
+    [id]="(selectedItemIndex === i? 'selected': '')" >
+    <div *ngIf="selectedItemIndex === i" #selected></div>
+    <ng-template #selected>i am selected</ng-template>
         <img src={{item.image}} alt="{{item.name}}" />
         <span class="item-name">{{item.name}}</span>
         <span class="item-description">{{item.description}}</span>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges, ViewChild, ElementRef } from '@angular/core';
 import { CartService } from '../../services/cart/cart.service';
 import { ItemService } from 'src/app/services/item/item.service';
 import { Item } from '../../items';
@@ -11,23 +11,25 @@ import { Item } from '../../items';
 })
 export class ItemSuggestionComponent implements OnInit, OnChanges {
 
-  constructor(private cartService: CartService, private itemService: ItemService) {
+  constructor(private cartService: CartService) {
 
   }
 
+  @ViewChild('selected') selectedItem!: ElementRef;
+
   @Input() searchTerm: string = '';
-  items: Item[] = [];
+  @Input() selectedItemIndex: number = NaN;
+  @Input() items: Item[] = [];
 
   ngOnInit(): void {
   }
 
-  ngOnChanges(): void {
-    if (this.searchTerm.length) {
-      this.itemService.getItems(this.searchTerm).subscribe((res: any) => {
-        return this.items = res;
-      })
+  ngOnChanges(changes: SimpleChanges): void {
+    const change = changes['selectedItemIndex'];
+    if (change) {
+      console.log('change!', change);
+      this.selectedItem?.nativeElement?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
-    this.items = [];
   }
 
 
