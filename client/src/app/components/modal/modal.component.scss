@@ -1,0 +1,45 @@
+.modal-container {
+    border: 1px solid rgba(164, 91, 164, 0.594);
+    border-radius: 4px;
+    position: fixed;
+    background-color: white;
+    top: 12%;
+    transform: translateX(-50%);
+    left: 50%;
+    z-index: 5;
+    width: 16vw;
+    height: 16vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    padding: 16px;
+    font-size: 24px;
+    animation: fade-in 0.4s both;
+
+    button {
+        align-self: flex-end;
+        background-color: rgba(207, 21, 92, 0.795);
+        border: none;
+        border-radius: inherit;
+        padding: 8px;
+        color: white;
+        transition: transform 0.3s;
+
+        &:hover {
+            transform: scale(1.02);
+            cursor: pointer;
+        }
+    }
+}
+
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
