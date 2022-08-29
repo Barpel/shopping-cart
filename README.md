@@ -3,5 +3,5 @@ It allows you to search for products using an input and add them to your cart wi
 
 To run this project you will need 2 terminals:
 
-1. From the root folder, go to `./server/npm run dev`
-2. From the root folder, go to `./client/ng serve`
+1. From the root folder, go to ./server and run `npm run dev`
+2. From the root folder, go to ./client/ and run `ng serve`
