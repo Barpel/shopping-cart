@@ -9,7 +9,7 @@
     grid-template-columns: repeat(3, 320px);
     width: 80%;
     justify-content: center;
-    margin: 80px auto 0;
+    margin: 56px auto 0;
 
     .item {
         box-sizing: border-box;
@@ -32,7 +32,7 @@
 
         &#selected {
             transform: scale(1.05);
-            border: 1px solid rgba(65, 105, 225, 0.5);
+            border: 1px solid rgba(164, 91, 164, 0.285);
         }
 
         img {
@@ -73,7 +73,7 @@
             margin-top: 16px;
             width: 100%;
             border: none;
-            background-color: royalblue;
+            background-color: rgba(164, 91, 164, 0.594);
             color: white;
             padding: 8px;
             border-radius: 4px;
@@ -81,7 +81,7 @@
 
             &:hover {
                 cursor: pointer;
-                background-color: darken(royalblue, 5);
+                background-color: darken(rgba(164, 91, 164, 0.594), 5);
             }
         }
     }

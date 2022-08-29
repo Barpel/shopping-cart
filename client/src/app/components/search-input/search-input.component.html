@@ -1,5 +1,5 @@
 <div class="search-container">
     <input class="search-input" (input)="handleSearch($any($event.target).value)" type="text"
-        placeholder="Search products" />
+        placeholder="Search products" [value]="searchValue" />
     <span class="search-icon"></span>
 </div>

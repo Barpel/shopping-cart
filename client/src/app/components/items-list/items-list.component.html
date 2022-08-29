@@ -1,5 +1,5 @@
 <div class="items-container">
-    <div class="items-list">
+    <div class="items-list" *ngIf="items.length; else noItems">
         <div class="item" *ngFor="let item of items">
             <img src="{{item.image}}" alt="{{item.name}}" />
             <div class="item-details">
@@ -10,4 +10,13 @@
             <button type="button" (click)="removeFromCart(item.sku)" class="item-remove"></button>
         </div>
     </div>
+    <ng-template #noItems>
+        <div class="no-items">
+            <p>
+                Your cart is currently empty. <br />
+                Search for some items and add then to your cart!
+            </p>
+            <img src="../../../assets/empty-cart.jpeg" />
+        </div>
+    </ng-template>
 </div>

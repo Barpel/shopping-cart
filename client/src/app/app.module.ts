@@ -9,6 +9,7 @@ import { SearchInputComponent } from './components/search-input/search-input.com
 import { ItemSuggestionComponent } from './components/item-suggestion/item-suggestion.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ProductsSearchComponent } from './components/products-search/products-search.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ProductsSearchComponent } from './components/products-search/products-s
     SearchInputComponent,
     ItemSuggestionComponent,
     HeaderComponent,
-    ProductsSearchComponent
+    ProductsSearchComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,

@@ -1,2 +1,5 @@
-<app-search-input (performSearch)="handleSearchPerformed($event)"></app-search-input>
-<app-item-suggestion [items]="items" [selectedItemIndex]="selectedProductIndex" #itemSuggestion></app-item-suggestion>
+<app-search-input [searchValue]="searchTerm" (performSearch)="handleSearchPerformed($event)"></app-search-input>
+<app-item-suggestion [items]="items" [selectedItemIndex]="selectedProductIndex"
+    [selectedProductRows]="selectedProductRows"></app-item-suggestion>
+<app-modal [shouldShowModal]="shouldShowAddToCart" [text]="addToCartText" (shouldCloseModal)="handleModalClick($event)">
+</app-modal>

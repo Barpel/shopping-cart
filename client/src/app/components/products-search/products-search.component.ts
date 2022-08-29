@@ -1,6 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { ViewportScroller } from '@angular/common';
 import { Item } from 'src/app/items';
+import { CartService } from 'src/app/services/cart/cart.service';
 import { ItemService } from 'src/app/services/item/item.service';
 
 const PRODUCTS_IN_ROW = 3;
@@ -12,11 +12,14 @@ const PRODUCTS_IN_ROW = 3;
 })
 export class ProductsSearchComponent implements OnInit {
 
-  constructor(private itemService: ItemService, private scroller: ViewportScroller) { }
+  constructor(private itemService: ItemService, private cartService: CartService) { }
 
   items: Item[] = [];
   searchTerm: string = '';
   selectedProductIndex: number = NaN;
+  selectedProductRows: { current: number; previous: number } = { current: NaN, previous: NaN };
+  shouldShowAddToCart: boolean = false;
+  addToCartText: string = '';
 
   ngOnInit(): void {
   }
@@ -32,15 +35,8 @@ export class ProductsSearchComponent implements OnInit {
     const indexCalculation = this.selectedProductIndex + increase;
     this.selectedProductIndex = indexCalculation < 0 || indexCalculation >= this.items.length ? this.selectedProductIndex : indexCalculation;
 
-    const previousRow = Math.floor(prevIndex / PRODUCTS_IN_ROW);
-    const currentRow = Math.floor(this.selectedProductIndex / PRODUCTS_IN_ROW);
-
-    if (increase === PRODUCTS_IN_ROW || increase === -PRODUCTS_IN_ROW || previousRow !== currentRow) {
-      // setTimeout(() => {
-      //   this.scroller.scrollToAnchor('selected');
-      // }, 0);
-    }
-    console.log(this.selectedProductIndex);
+    this.selectedProductRows.previous = Math.floor(prevIndex / PRODUCTS_IN_ROW);
+    this.selectedProductRows.current = Math.floor(this.selectedProductIndex / PRODUCTS_IN_ROW);
   }
 
   @HostListener('document:keydown', ['$event'])
@@ -61,6 +57,15 @@ export class ProductsSearchComponent implements OnInit {
       case 'ArrowUp':
         this.changeSelectedProduct(-PRODUCTS_IN_ROW);
         break;
+      case 'Enter':
+        if (!isNaN(this.selectedProductIndex)) {
+          const item = this.items[this.selectedProductIndex];
+          this.searchTerm = item.name;
+          this.cartService.addToCart(item);
+          this.addToCartText = `Item ${item.name} added to cart`
+          this.handleModalClick(false);
+        }
+        break;
     }
   }
 
@@ -68,5 +73,9 @@ export class ProductsSearchComponent implements OnInit {
     this.itemService.getItems(value).subscribe((res: any) => {
       return this.items = res;
     })
+  }
+  
+  handleModalClick(value: boolean) {
+    this.shouldShowAddToCart = !value;
   }
 }
